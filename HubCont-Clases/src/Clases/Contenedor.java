@@ -1,5 +1,6 @@
 package Clases;
 import java.io.Serializable;
+import java.net.IDN;
 
 public class Contenedor implements Serializable {
 
@@ -26,14 +27,29 @@ public class Contenedor implements Serializable {
         this.ID = ID;
         this.prioridad = 3;
     }
-    public Contenedor(int ID,int peso,String paisProcedencia,int prioridad,String descripcionContenido,String empresaEnvia,String empresaRecibe){
+    public Contenedor(int ID, int prioridad, int peso, String paísProcedencia, String descripción, String empresaEmisora, String empresaReceptora) {
         this.ID = ID;
-        this.peso = peso;
-        this.paisProcedencia = paisProcedencia;
-        this.prioridad = prioridad;
-        this.descripcionContenido = descripcionContenido;
-        this.empresaEnvia = empresaEnvia;
-        this.empresaRecibe = empresaRecibe;
+        if (prioridad >= 0 && prioridad <= 3) {
+            this.prioridad = prioridad;
+        }
+
+        if (peso >= 100) {
+            this.peso = peso;
+        }
+
+        this.paisProcedencia = paísProcedencia;
+        if (descripción.length() <= 100) {
+            this.descripcionContenido = descripción;
+        }
+
+        if (empresaEmisora.length() <= 20) {
+            this.empresaEnvia = empresaEmisora;
+        }
+
+        if (empresaReceptora.length() <= 20) {
+            this.empresaRecibe= empresaReceptora;
+        }
+
     }
 
     //setters y getters
@@ -105,7 +121,7 @@ public class Contenedor implements Serializable {
     }
 
     //metodo apilar
-    public  void apilar(Contenedor c){
+    /*public  void apilar(Contenedor c){
         if(c != null){
             int p;
             int col;
@@ -155,6 +171,7 @@ public class Contenedor implements Serializable {
     }
 
     //metodo para calcular la cantidad de contenedores procedentes de un determinado país
+
     public void cantidadContenedores(String pais){
         int cont=0;
         for (int i = 0; i < hub.length; i++) {
@@ -165,7 +182,7 @@ public class Contenedor implements Serializable {
             }
         }
         System.out.println("Hay " + cont + "procedentes de " + paisProcedencia);
-    }
+    }*/
 
 
 }
