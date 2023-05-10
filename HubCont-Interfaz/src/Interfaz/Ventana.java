@@ -1,2 +1,4 @@
-package Interfaz;public class Ventana {
+package Interfaz;
+
+public class Ventana {
 }

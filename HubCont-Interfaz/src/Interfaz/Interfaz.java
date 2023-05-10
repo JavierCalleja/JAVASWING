@@ -69,16 +69,16 @@ public class Interfaz extends JFrame implements Serializable {
                         textField3.getText()!=null &&
                         textField4.getText()!=null &&
                         textArea1.getText()!=null &&
-                        comboBox1.getSelectedItem()!=null &&
-                        (a1RadioButton.isSelected() || a2RadioButton.isSelected() || a3RadioButton.isSelected())
+                        comboPais1.getSelectedItem()!=null &&
+                        (Boton1.isSelected() || Boton2.isSelected() || Boton3.isSelected())
 
                 ){
                     int x=0;
-                    if(a1RadioButton.isSelected())
+                    if(Boton1.isSelected())
                         x=1;
-                    if(a2RadioButton.isSelected())
+                    if(Boton2.isSelected())
                         x=2;
-                    if(a3RadioButton.isSelected())
+                    if(Boton3.isSelected())
                         x=3;
                     Contenedor cont = new Contenedor(Integer.parseInt(textField1.getText()),x,Double.parseDouble(textField2.getText()),
                             (String)comboBox1.getSelectedItem(), textArea1.getText(), textField3.getText(), textField4.getText());
@@ -89,7 +89,7 @@ public class Interfaz extends JFrame implements Serializable {
             }
         });
 
-        desapilarButton.addActionListener(new ActionListener() {
+        desabilitarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "Pulsaste el botón 'Desapìlar'.", "", JOptionPane.INFORMATION_MESSAGE);
@@ -100,10 +100,10 @@ public class Interfaz extends JFrame implements Serializable {
             }
                 });
 
-        inspeccionadoEnAduanasCheckBox.addActionListener(new ActionListener() {
+        insAdCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (inspeccionadoEnAduanasCheckBox.isSelected()) {
+                if (insAdCheckBox.isSelected()) {
                     JOptionPane.showMessageDialog(null, "Pulsaste el botón 'Inspeccionado en aduanas'.", "", JOptionPane.INFORMATION_MESSAGE);
                     aduanas = true;
                 } else {
@@ -144,10 +144,10 @@ public class Interfaz extends JFrame implements Serializable {
             }
         });
 
-        comboBox1.addActionListener(new ActionListener() {
+        comboPais1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (comboBox1.getSelectedItem() == "Sin desayuno")
+                if (comboPais1.getSelectedItem() == "Sin desayuno")
                     JOptionPane.showMessageDialog(null, "Has seleccionado sin desayuno", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
         });
